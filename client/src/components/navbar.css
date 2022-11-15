@@ -1,0 +1,30 @@
+img{
+      width: 10rem;
+      margin-right: 1rem;
+      
+}
+
+.logo {
+    width: 5rem;
+    
+}
+
+.searchContainer{
+    margin-left: 10rem;
+    width: 40rem;
+}
+
+.login-btn{
+    outline: none;
+    background-color: #E1E6F4;
+    border-color: #39739D;
+    color: #22699c;
+}
+
+.signup-btn{
+    
+    background-color: #0A95FF;
+}
+
+
+
