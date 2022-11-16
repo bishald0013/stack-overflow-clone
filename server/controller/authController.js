@@ -72,6 +72,20 @@ class authController {
             res.status(400).send(error)
         }
     }
+
+    static getAllUser = async (req, res) =>{
+        try {
+             await UserModel.find((err, result) => {
+                if(!err){
+                    res.status(200).send({status: "success", users: result})
+                }else{
+                    console.log(err)
+                }
+            })
+        } catch (error) {
+            res.status(400).status({status:"fails", message: "something went wrong"})
+        }
+    }
 }
 
 export default authController

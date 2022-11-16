@@ -19,7 +19,7 @@ function Leftbar() {
           <Link to="/" className="nav-link active my-2">
             Tags
           </Link>
-          <Link to="/user" className="nav-link active my-2">
+          <Link to="/alluser" className="nav-link active my-2">
             Users
           </Link>
           <Link to="/" className="nav-link active my-2">

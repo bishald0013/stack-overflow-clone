@@ -6,6 +6,7 @@ import Home from "./components/content/Home";
 import PostQuestion from "./components/content/PostQuestion/PostQuestion";
 import {getToken} from "./services/localStorage"
 import User from "./auth/User";
+import AllUser from "./auth/AllUser"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
            <Route path="signup" element={<Signup/>} />
            <Route path="postquestion" element={<PostQuestion />} />
            <Route path="user" element={<User/>} />
+           <Route path="alluser" element={<AllUser/>} />
         </Routes>
       </BrowserRouter>
     </div>

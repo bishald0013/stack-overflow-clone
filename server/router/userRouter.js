@@ -11,6 +11,7 @@ router.use("/logeduser", middlewire)
 router.post("/signup", authController.userSignUp )
 router.post("/login", authController.loginUser )
 router.get("/logeduser", authController.getUser)
+router.get("/alluser", authController.getAllUser)
 
 //ask question route
 router.post("/ask/:id", questionController.postQuestion)

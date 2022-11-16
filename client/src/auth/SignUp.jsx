@@ -51,7 +51,7 @@ function SignUp() {
 
   return (
     <div className='container'>
-      <form className="login-form mx-auto" style={{margin: "5rem"}} onSubmit={handleSubmit}>
+      <form className="login-form mx-auto" onSubmit={handleSubmit}>
         <div class="mb-3" > 
           <label for="exampleInputEmail1" class="form-label mt-5">
             Display Name

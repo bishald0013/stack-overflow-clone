@@ -38,6 +38,7 @@ function User() {
           <button type="button" class="btn btn-primary position-relative w-25 h-75">
             <h1 className="fs-1 icon-font">{letter}</h1>
           </button>
+          <h1 className="fs-1 icon-font">{user.name}</h1>
         </div>
       </div>
     </div>
