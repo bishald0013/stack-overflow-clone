@@ -26,6 +26,7 @@ function User() {
     }
   }, [data, isSuccess]);
 
+
   const letter = user.name.split("")[0]
 
   return (

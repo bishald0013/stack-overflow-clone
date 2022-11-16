@@ -30,9 +30,15 @@ class askQuestion {
 
     static getQuestion = async (req, res) => {
         try {
-            res.status(200).send({status: "success", message: "success", type: "success", question: newQuestion})
+           await QuestionModel.find((error, result) => {
+            if(!error){
+                res.status(200).send({status: "success", allQuestions: result})
+            }else{
+                res.status(400).send({status: "fails", message: "something went wrong"})
+            }
+           })
         } catch (error) {
-            
+            res.status(400).send({status: "fails", message: "something went wrong"})
         }
     }
 }

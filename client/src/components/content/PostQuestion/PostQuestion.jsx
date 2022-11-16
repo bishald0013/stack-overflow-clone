@@ -2,12 +2,27 @@ import React from "react";
 import { useAskQuestionMutation } from "../../../services/userAuthApi";
 import "./postquestion.css";
 import {useParams} from "react-router-dom"
+import {useLogedUserQuery} from "../../../services/userAuthApi"
+import {getToken} from "../../../services/localStorage"
+import { useEffect } from "react";
 
 function PostQuestion() {
 
+  let id;
 
+  const token = getToken()
+  const {data, isSuccess} = useLogedUserQuery(token)
+
+  useEffect(() =>{
+    if(data && isSuccess){
+      id = data.user._id
+      console.log(id)
+    }
+  }, [data, isSuccess])
+
+  // const id = data.user._id
+ 
   const [ askQuestion ] = useAskQuestionMutation()
-  const {id} = useParams()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +82,7 @@ function PostQuestion() {
             id="questionTags"
           />
         </div>
-        <button type="submit" class="btn btn-primary btn-sm">Small button</button>
+        <button type="submit" class="btn btn-primary btn-sm">Submit question</button>
       </form>
         </div>
       </div>
