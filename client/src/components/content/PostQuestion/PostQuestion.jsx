@@ -1,10 +1,9 @@
 import React from "react";
 import { useAskQuestionMutation } from "../../../services/userAuthApi";
-import "./postquestion.css";
-import {useParams} from "react-router-dom"
 import {useLogedUserQuery} from "../../../services/userAuthApi"
 import {getToken} from "../../../services/localStorage"
 import { useEffect } from "react";
+import "./postquestion.css";
 
 function PostQuestion() {
 
@@ -16,7 +15,6 @@ function PostQuestion() {
   useEffect(() =>{
     if(data && isSuccess){
       id = data.user._id
-      console.log(id)
     }
   }, [data, isSuccess])
 
