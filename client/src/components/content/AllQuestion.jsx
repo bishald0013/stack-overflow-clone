@@ -16,7 +16,11 @@ function AllQuestion() {
             </div>
         </div>
         <hr></hr>
-        <div className="row"></div>
+        <div className="row">
+          <div className="col">
+            
+          </div>
+        </div>
     </div>
   )
 }

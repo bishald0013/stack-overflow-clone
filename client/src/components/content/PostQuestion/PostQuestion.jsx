@@ -18,8 +18,6 @@ function PostQuestion() {
     }
   }, [data, isSuccess])
 
-  // const id = data.user._id
- 
   const [ askQuestion ] = useAskQuestionMutation()
 
   const handleSubmit = async (e) => {

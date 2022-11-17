@@ -8,8 +8,8 @@ const router = express.Router()
 router.use("/logeduser", middlewire)
 
 //user route
-router.post("/signup", authController.userSignUp )
-router.post("/login", authController.loginUser )
+router.post("/signup", authController.userSignUp)
+router.post("/login", authController.loginUser)
 router.get("/logeduser", authController.getUser)
 router.get("/alluser", authController.getAllUser)
 
