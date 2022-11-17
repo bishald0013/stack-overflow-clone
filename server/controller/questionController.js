@@ -34,7 +34,7 @@ class askQuestion {
             if(!error){
                 res.status(200).send({status: "success", allQuestions: result})
             }else{
-                res.status(400).send({status: "fails", message: "something went wrong"})
+                res.status(400).send({status: "fails", message: error})
             }
            })
         } catch (error) {

@@ -2,10 +2,13 @@ import  express  from "express";
 import authController from "../controller/authController.js";
 import middlewire from "../middleware/middlewire.js"
 import questionController from "../controller/questionController.js"
+import questionMiddleire from "../middleware/quMiddlewire.js"
 const router = express.Router()
 
 //private route
 router.use("/logeduser", middlewire)
+router.use("/allquestion", questionMiddleire)
+
 
 //user route
 router.post("/signup", authController.userSignUp)

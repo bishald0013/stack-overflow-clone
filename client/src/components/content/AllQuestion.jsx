@@ -1,8 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./question.css"
+import {useGetAllQuestionsQuery} from "../../services/userAuthApi"
 
 function AllQuestion() {
+
+  // const {data, isSuccess} = useGetAllQuestionsQuery()
+  // console.log(data)
+
+
   return (
     <div className='container'>
         <div className="row">

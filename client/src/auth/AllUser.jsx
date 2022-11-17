@@ -1,30 +1,29 @@
-import { useState } from 'react'
-import {useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Leftbar from '../components/content/Leftbar'
 import {useGetAllUserQuery} from "../services/userAuthApi"
-import User from './User'
 import Users from './Users'
-
 function AllUser() {
 
   const {data, isSuccess} = useGetAllUserQuery()
 
-  const [ allUsers, setAllUsers] = useState({
-    name: "",
-    email: ""
+  const [users, setUsers] = useState({
+    allUser: []
   })
- 
-   useEffect(() => {
+  
+  useEffect(() =>{
     if(data && isSuccess){
-      setAllUsers({
-        name: data.users.name,
-        email: data.users.email
+      setUsers({
+        allUser: data.users, 
+        tags : data.tags
       })
     }
   }, [data, isSuccess])
-  console.log(data)
 
+  const {allUser} = users
 
+  console.log(users)
+
+  
   return (
     <div className='container my-5'>
         <div className="row">
@@ -32,9 +31,10 @@ function AllUser() {
                 <Leftbar/>
             </div>
             <div className="col-lg-9">
-               {/* {allUsers.map((user) => {
-                return (<User user= {user}/>)
-               })} */}
+              {allUser.map((user) =>{
+                return <Users user={user} key={user._id}/>
+                
+              })}
             </div>
         </div>
     </div>

@@ -47,12 +47,12 @@ export const userAuthApi = createApi({
         }),
 
         getAllUser: builder.query({
-            query: () => {
+            query: (token) => {
                 return{
                     url: "alluser",
                     method: "GET",
                     header: {
-                        "Content-type":"application/json"
+                        "authorization": `Bearer ${token}`
                     }
                 }
             }
