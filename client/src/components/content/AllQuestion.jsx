@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./question.css"
-import {useGetAllQuestionsQuery} from "../../services/userAuthApi"
+import {useGetAllQuestionQuery} from "../../services/userAuthApi"
 
 function AllQuestion() {
 
-  // const {data, isSuccess} = useGetAllQuestionsQuery()
-  // console.log(data)
-
+  const {data, isSuccess} = useGetAllQuestionQuery()
+  console.log(data)
 
   return (
     <div className='container'>
@@ -24,7 +23,7 @@ function AllQuestion() {
         <hr></hr>
         <div className="row">
           <div className="col">
-            
+             
           </div>
         </div>
     </div>

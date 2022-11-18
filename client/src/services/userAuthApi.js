@@ -73,18 +73,18 @@ export const userAuthApi = createApi({
             }
         }),
 
-        //get all question 
-        getAllQuestions: builder.query({
-            query: () =>{
+        //get all question
+        getAllQuestion: builder.query({
+            query: () => {
                 return{
                     url: "allquestion",
                     method: "GET",
                     headers: {
-                        "Content-type":"application/json"
+                        "Content-type" : "application/json"
                     }
                 }
             }
-        }),
+        }) 
 
 
     }),
@@ -93,5 +93,5 @@ export const userAuthApi = createApi({
 
 export const { useUserSigneUpMutation, useUserLoginMutation, 
     useLogedUserQuery, useAskQuestionMutation, useGetAllUserQuery, 
-    useGetAllQuestionsQuery } = userAuthApi
+   useGetAllQuestionQuery } = userAuthApi
 
