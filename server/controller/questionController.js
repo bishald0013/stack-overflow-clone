@@ -31,7 +31,7 @@ class askQuestion {
     static getAllQuestion = async (req, res) => {
         try {
             await QuestionModel.find((error, result) => {
-                res.status(200).send({status: "success", data: result})
+                res.status(200).send({status: "success", questions: result})
             })
         } catch (error) {
             

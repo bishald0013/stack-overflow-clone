@@ -2,11 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./question.css"
 import {useGetAllQuestionQuery} from "../../services/userAuthApi"
+import { useState } from 'react'
+import { useEffect } from 'react'
+import DisplayAllQuestion from './DisplayAllQuestion'
 
 function AllQuestion() {
 
   const {data, isSuccess} = useGetAllQuestionQuery()
-  console.log(data)
+  
+  const {questions} = data
+  
+  console.log(questions)
+
+
 
   return (
     <div className='container'>
@@ -23,7 +31,7 @@ function AllQuestion() {
         <hr></hr>
         <div className="row">
           <div className="col">
-             
+           wadAWDAW
           </div>
         </div>
     </div>
