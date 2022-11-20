@@ -12,7 +12,7 @@ function Home() {
   return (
     <div className='container my-5'>
         <div className="row">
-            <div className="col-lg-3 ">
+            <div className="col-lg-3">
                <Leftbar />
             </div>
             <div className="col-lg-6">

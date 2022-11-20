@@ -1,12 +1,12 @@
 import Navbar from "./components/Navbar"
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Login from "./auth/Login";
 import Signup from "./auth/SignUp"
 import Home from "./components/content/Home";
 import PostQuestion from "./components/content/PostQuestion/PostQuestion";
-import {getToken} from "./services/localStorage"
 import User from "./auth/User";
 import AllUser from "./auth/AllUser"
+import QuestionDetails from "./components/content/QuestionDetails/QuestionDetails";
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
            <Route path="postquestion" element={<PostQuestion />} />
            <Route path="user" element={<User/>} />
            <Route path="alluser" element={<AllUser/>} />
+            <Route path ="qdetails" element={<QuestionDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>

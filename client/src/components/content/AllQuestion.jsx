@@ -2,17 +2,27 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./question.css"
 import {useGetAllQuestionQuery} from "../../services/userAuthApi"
+import DisplayAllQuestion from './DisplayAllQuestion'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import DisplayAllQuestion from './DisplayAllQuestion'
 
 function AllQuestion() {
 
   const {data, isSuccess} = useGetAllQuestionQuery()
+
+  const [allquestions, setAllquestions] = useState({
+    questions: []
+  })
   
-  const {questions} = data
-  
-  console.log(questions)
+  useEffect(() => {
+    if(data && isSuccess){
+      setAllquestions({
+        questions: data.questions
+      })
+    }
+  }, [data, isSuccess])
+
+  const {questions} = allquestions
 
 
 
@@ -31,7 +41,9 @@ function AllQuestion() {
         <hr></hr>
         <div className="row">
           <div className="col">
-           wadAWDAW
+            {questions.map((q) => {
+                return(<DisplayAllQuestion q={q} key={q._id}/>)
+            })}
           </div>
         </div>
     </div>

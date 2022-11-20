@@ -39,7 +39,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light shadow-sm">
+      <nav className="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
         <div className="container">
           <Link to="/">
             <img className="logoimage" src={logo1} alt="logo" />
