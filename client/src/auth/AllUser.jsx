@@ -21,7 +21,7 @@ function AllUser() {
 
   const {allUser} = users
 
-  console.log(allUser)
+
 
   
   return (

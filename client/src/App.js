@@ -23,7 +23,7 @@ function App() {
            <Route path="postquestion" element={<PostQuestion />} />
            <Route path="user" element={<User/>} />
            <Route path="alluser" element={<AllUser/>} />
-            <Route path ="qdetails" element={<QuestionDetails/>} />
+          <Route path ="qdetails/:id" element={<QuestionDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>

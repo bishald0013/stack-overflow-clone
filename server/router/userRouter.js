@@ -18,5 +18,6 @@ router.get("/alluser", authController.getAllUser)
 //ask question route
 router.post("/ask/:id", questionController.postQuestion)
 router.get("/allquestion", questionController.getAllQuestion)
+router.get("/question/:id", questionController.getSingleQuestion)
 
 export default router

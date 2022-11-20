@@ -34,7 +34,18 @@ class askQuestion {
                 res.status(200).send({status: "success", questions: result})
             })
         } catch (error) {
-            
+            // res.status(400).send({status: "fail", message: "something went wrong"})
+        }
+    }
+
+    static getSingleQuestion = async (req, res) => {
+        try {
+            const { id } = req.params            
+            const question = await QuestionModel.findById({_id: id})
+            res.status(200).send({status: "success", data: question})
+   
+        } catch (error) {
+            res.status(400).send({status:"fails", message:"something went wrong"})
         }
     }
 }

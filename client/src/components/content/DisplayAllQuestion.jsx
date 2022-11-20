@@ -3,16 +3,17 @@ import {Link, useNavigate} from "react-router-dom"
 
 function DisplayAllQuestion({q}) {
 
-  // const navigate = useNavigate()
-  // const handleClick = () => {
-  //   navigate("/qdetails")
-  // }
+  const {_id} = q
+  const navigate = useNavigate()
+
+  const handleClick = async() => {
+    navigate(`qdetails/${_id}`)
+  }
+
 
   return (
-    <div>
-      <Link to="/qdetails" class="nav-item" >
-        <h1 className='fs-4'>{q.questionTitle}</h1>
-      </Link>
+    <div className='container'>
+        <h1 className='fs-4' onClick={handleClick}>{q.questionTitle}</h1>
         <h1 className='fs-5'>{q.userPosted}</h1>
         <h1 className='fs-6'>{q.postedOn}</h1>
         <h1 className='fs-6'>{q.questionTags}</h1>
