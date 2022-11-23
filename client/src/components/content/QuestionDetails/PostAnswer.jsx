@@ -10,7 +10,9 @@ function PostAnswer() {
             ans: data.get('answer')
         }
 
-        console.log(answer)
+        const {ans} = answer
+
+        console.log(ans)
     }
 
   return (
@@ -20,7 +22,7 @@ function PostAnswer() {
                 <textarea class="form-control" placeholder="Leave a comment here" id="answer" name='answer'></textarea>
                 <label for="floatingTextarea2">Type your answer</label>
             </div>
-            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="submit" class="btn btn-primary">Primary</button>
         </form>
     </div>
   )

@@ -15,6 +15,7 @@ const verifyUser = async (req, res, next) =>{
             await QuestionModel.find((err, result) => {
                 if(!err){
                     req.ques = result
+                    console.log(req.ques)
                     next()
                 }else{
                     res.status(400).send(err)

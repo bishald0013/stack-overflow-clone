@@ -48,6 +48,19 @@ class askQuestion {
             res.status(400).send({status:"fails", message:"something went wrong"})
         }
     }
+
+    static answerQuestion = async (req, res) => {
+        try {
+            const {id} = req.params
+            const {answerBody} = req.body
+            await QuestionModel.updateOne({_id: id}, {$addToSet: {"answer": [{answerBody: answerBody}]}})
+
+            res.status(200).send({status:"success", message: "Successfully updated"})
+
+        } catch (error) {
+            res.status(400).send({status:"fails", messag: "something went wrong"})
+        }
+    } 
 }
 
 export default askQuestion

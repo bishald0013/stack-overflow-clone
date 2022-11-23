@@ -19,5 +19,6 @@ router.get("/alluser", authController.getAllUser)
 router.post("/ask/:id", questionController.postQuestion)
 router.get("/allquestion", questionController.getAllQuestion)
 router.get("/question/:id", questionController.getSingleQuestion)
+router.patch("/answer/:id", questionController.answerQuestion)
 
 export default router
