@@ -1,5 +1,6 @@
 import QuestionModel from "../model/Question.js";
 import UserModel from "../model/auth.js";
+import mongoose from "mongoose";
 
 
 class askQuestion {
@@ -52,15 +53,40 @@ class askQuestion {
     static answerQuestion = async (req, res) => {
         try {
             const {id} = req.params
-            const {answerBody} = req.body
-            await QuestionModel.updateOne({_id: id}, {$addToSet: {"answer": [{answerBody: answerBody}]}})
+            const {answerBody, userAnswered, userId, noOfAnswers} = req.body
+            console.log(answerBody)
 
-            res.status(200).send({status:"success", message: "Successfully updated"})
+            if(!mongoose.Types.ObjectId.isValid(id)){
+                return res.status(400).send({status: "fails", message: "not a vaild id"})
+            }
+
+            answerCount(id, noOfAnswers)
+
+            const updatedQuestion =  await QuestionModel.findByIdAndUpdate( id, {
+               $addToSet : { 'answer': [{
+                    answerBody,
+                    userAnswered,
+                    userId
+               }] }
+            })
+            
+            res.status(200).send({status: "done", message: updatedQuestion})
 
         } catch (error) {
-            res.status(400).send({status:"fails", messag: "something went wrong"})
+            res.status(500).send({status:"fails", message: "something went wrong"})
+            console.log(error)
         }
-    } 
+    }
+    
+}
+
+
+const answerCount = async (id, noOfAnswers) => {
+    try {
+        await QuestionModel.findByIdAndUpdate( id, {$set: { noOfAnswers: noOfAnswers }})
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export default askQuestion

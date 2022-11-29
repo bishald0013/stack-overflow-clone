@@ -22,6 +22,10 @@ connectDB(DATABASE_URL)
 
 app.use("/api/user", userRouter)
 
+app.on('listening', () =>{
+    console.log("ok, server is running")
+})
+
 
 app.listen( port, () => {console.log(`server is running on port ${port}`)})
 

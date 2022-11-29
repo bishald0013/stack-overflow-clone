@@ -7,15 +7,15 @@ const questionSchema = mongoose.Schema({
     noOfAnswers : {type: Number, default: 0},
     upVote: {type: [String], default: [] },
     downVote: {type: [String], default: [] },
-    userPosted: { type: String, required: "quest must have an author"},
+    userPosted: {type: String, required: "quest must have an author"},
     userId: {type: String},
     postedOn: { type: Date, default: Date.now },
-    asnwer: [{
-        answerBody: String,
+    answer: [{
+        answerBody:  String,
         userAnswered: String,
         userId: String,
         asnweredOn: {type: Date, default: Date.now}
-    }] 
+    }]
 })
 
 const QuestionModel = mongoose.model("Questions", questionSchema)
