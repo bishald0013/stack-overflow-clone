@@ -20,9 +20,6 @@ function AllUser() {
   }, [data, isSuccess])
 
   const {allUser} = users
-
-
-
   
   return (
     <div className='container my-5'>
