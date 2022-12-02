@@ -25,8 +25,7 @@ class authController {
                         const userId = await UserModel.findOne({email: email}) 
                         const token = jwt.sign({userId: userId._id}, process.env.JWT_SECRET, {expiresIn: "1hr"})
                       
-                        res.status
-                        (200).send({status: "success", message: "Successfully created user", type: "success", token: token,})
+                        res.status(200).send({status: "success", message: "Successfully created user", type: "success", token: token,})
                     }else{
                         res.status(400).send({status: "fails", message: "password and confirm_password doesnot match", type: "error"})    
                     }

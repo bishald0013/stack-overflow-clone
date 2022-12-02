@@ -7,6 +7,7 @@ import PostQuestion from "./components/content/PostQuestion/PostQuestion";
 import User from "./auth/User";
 import AllUser from "./auth/AllUser"
 import QuestionDetails from "./components/content/QuestionDetails/QuestionDetails";
+import DisplayAllQuestion from "./components/content/DisplayAllQuestion";
 
 function App() {
 

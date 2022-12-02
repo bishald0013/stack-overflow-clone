@@ -7,6 +7,7 @@ const router = express.Router()
 
 //private route
 router.use("/logeduser", middlewire)
+router.use("/answer/:id", middlewire)
 
 
 //user route
@@ -20,5 +21,8 @@ router.post("/ask/:id", questionController.postQuestion)
 router.get("/allquestion", questionController.getAllQuestion)
 router.get("/question/:id", questionController.getSingleQuestion)
 router.patch("/answer/:id", questionController.answerQuestion)
+
+//display answer
+// router.get("/allanswers/:id", questionController.displayAnswer)
 
 export default router

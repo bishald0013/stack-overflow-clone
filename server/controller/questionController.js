@@ -53,33 +53,45 @@ class askQuestion {
     static answerQuestion = async (req, res) => {
         try {
             const {id} = req.params
-            const {answerBody, userAnswered, userId, noOfAnswers} = req.body
-            console.log(answerBody)
-
+            const {answerBody, noOfAnswers} = req.body
+            const { name, _id } = req.user
+           
             if(!mongoose.Types.ObjectId.isValid(id)){
                 return res.status(400).send({status: "fails", message: "not a vaild id"})
             }
 
             answerCount(id, noOfAnswers)
 
-            const updatedQuestion =  await QuestionModel.findByIdAndUpdate( id, {
+            await QuestionModel.findByIdAndUpdate( id, {
                $addToSet : { 'answer': [{
                     answerBody,
-                    userAnswered,
-                    userId
+                    userAnswered: name,
+                    userId: _id
                }] }
             })
-            
-            res.status(200).send({status: "done", message: updatedQuestion})
 
+            const answerOfQuestion = await QuestionModel.findById( {_id: id} )
+            res.status(200).send({status: "success", message: answerOfQuestion})
+            // res.status(200).send({status: "success", message: "success"})
+        
         } catch (error) {
             res.status(500).send({status:"fails", message: "something went wrong"})
             console.log(error)
         }
     }
-    
-}
 
+    // static displayAnswer = async(req, res) =>{
+    //     try {
+
+    //         const { id } = req.params
+
+    //         const answerOfQuestion = await QuestionModel.findById( {_id: id} )
+    //         res.status(200).send({status: "success", message: answerOfQuestion})
+    //     } catch (error) {
+    //          res.status(200).send({status: "fails", message: error})
+    //     }
+    // }    
+}
 
 const answerCount = async (id, noOfAnswers) => {
     try {

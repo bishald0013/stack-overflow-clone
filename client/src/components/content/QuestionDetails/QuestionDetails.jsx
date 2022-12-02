@@ -5,19 +5,20 @@ import { useState, useEffect } from 'react'
 import Leftbar from '../Leftbar'
 import Rightbar from '../Rightbar'
 import PostAnswer from './PostAnswer'
+import DisplayAnswer from './DisplayAnswer'
+
 
  const QuestionDetails = () => {
 
   const params = useParams()
   const {id} = params
-  // console.log(params)
 
   const [question, setQuestion] = useState({
     qdetails: []
   })
-
+  
   const { data, isSuccess } = useGetQuestionsQuery({id})
-  // console.log(data)
+
 
   useEffect(() => {
     if(data && isSuccess){
@@ -28,7 +29,6 @@ import PostAnswer from './PostAnswer'
   }, [data, isSuccess])
 
   const {qdetails} = question
-  // console.log(qdetails)
 
   return (
     <div className='container'>
@@ -44,6 +44,10 @@ import PostAnswer from './PostAnswer'
             </div>
             <div className="body my-5">
             <p>{qdetails.questionBody}</p>
+            </div>
+            <hr></hr>
+            <div className="container">
+             <DisplayAnswer />
             </div>
             <div className="answerBody mt-5">
               <PostAnswer/>

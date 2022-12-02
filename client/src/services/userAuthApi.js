@@ -98,12 +98,35 @@ export const userAuthApi = createApi({
             }
         }),
 
+        postAnswer: builder.mutation({
+            query: ({id, answer, token}) => {
+                return {
+                    url: `answer/${id}`,
+                    method: 'PATCH',
+                    body: answer, 
+                    headers: {
+                        "authorization": `Bearer ${token}`
+                    }
+                }
+            }
+        }),
 
+        // displayAnswer: builder.query({
+        //     query: ({id}) => {
+        //         return{
+        //             url: `allanswers/${id}`,
+        //             method: 'GET',
+        //             headers: {
+        //                 "Content-type" : "application/json"
+        //             }
+        //         }
+        //     }
+        // }),
     }),
     
 })
 
 export const { useUserSigneUpMutation, useUserLoginMutation, 
     useLogedUserQuery, useAskQuestionMutation, useGetAllUserQuery, 
-   useGetAllQuestionQuery, useGetQuestionsQuery } = userAuthApi
+   useGetAllQuestionQuery, useGetQuestionsQuery, usePostAnswerMutation, useDisplayAnswerQuery } = userAuthApi
 
