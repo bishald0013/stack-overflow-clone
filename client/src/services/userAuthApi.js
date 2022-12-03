@@ -111,17 +111,17 @@ export const userAuthApi = createApi({
             }
         }),
 
-        // displayAnswer: builder.query({
-        //     query: ({id}) => {
-        //         return{
-        //             url: `allanswers/${id}`,
-        //             method: 'GET',
-        //             headers: {
-        //                 "Content-type" : "application/json"
-        //             }
-        //         }
-        //     }
-        // }),
+        displayAnswer: builder.query({
+            query: ({id}) => {
+                return{
+                    url: `allanswers/${id}`,
+                    method: 'GET',
+                    headers: {
+                        "Content-type" : "application/json"
+                    }
+                }
+            }
+        }),
     }),
     
 })

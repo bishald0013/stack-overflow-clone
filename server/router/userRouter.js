@@ -9,7 +9,6 @@ const router = express.Router()
 router.use("/logeduser", middlewire)
 router.use("/answer/:id", middlewire)
 
-
 //user route
 router.post("/signup", authController.userSignUp)
 router.post("/login", authController.loginUser)
@@ -23,6 +22,6 @@ router.get("/question/:id", questionController.getSingleQuestion)
 router.patch("/answer/:id", questionController.answerQuestion)
 
 //display answer
-// router.get("/allanswers/:id", questionController.displayAnswer)
+router.get("/allanswers/:id", questionController.displayAnswer)
 
 export default router

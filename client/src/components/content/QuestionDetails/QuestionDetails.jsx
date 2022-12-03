@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Leftbar from '../Leftbar'
 import Rightbar from '../Rightbar'
 import PostAnswer from './PostAnswer'
-import DisplayAnswer from './DisplayAnswer'
+
 
 
  const QuestionDetails = () => {
@@ -46,9 +46,7 @@ import DisplayAnswer from './DisplayAnswer'
             <p>{qdetails.questionBody}</p>
             </div>
             <hr></hr>
-            <div className="container">
-             <DisplayAnswer />
-            </div>
+            
             <div className="answerBody mt-5">
               <PostAnswer/>
             </div>

@@ -70,9 +70,9 @@ class askQuestion {
                }] }
             })
 
-            const answerOfQuestion = await QuestionModel.findById( {_id: id} )
-            res.status(200).send({status: "success", message: answerOfQuestion})
-            // res.status(200).send({status: "success", message: "success"})
+            const updatedQuestion = await QuestionModel.findById( {_id: id} )
+            // res.status(200).send({status: "success", message: updatedQuestion})
+            res.status(200).send({status: "success", message: "success"})
         
         } catch (error) {
             res.status(500).send({status:"fails", message: "something went wrong"})
@@ -80,17 +80,17 @@ class askQuestion {
         }
     }
 
-    // static displayAnswer = async(req, res) =>{
-    //     try {
+    static displayAnswer = async(req, res) =>{
+        try {
+            const { id } = req.params
 
-    //         const { id } = req.params
+            const answerOfQuestion = await QuestionModel.findById( {_id: id} )
+            res.status(200).send({status: "succ", message: answerOfQuestion})
 
-    //         const answerOfQuestion = await QuestionModel.findById( {_id: id} )
-    //         res.status(200).send({status: "success", message: answerOfQuestion})
-    //     } catch (error) {
-    //          res.status(200).send({status: "fails", message: error})
-    //     }
-    // }    
+        } catch (error) {
+             res.status(200).send({status: "fails", message: error})
+        }
+    }    
 }
 
 const answerCount = async (id, noOfAnswers) => {
