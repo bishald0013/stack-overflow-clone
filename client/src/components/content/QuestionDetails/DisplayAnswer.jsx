@@ -1,17 +1,15 @@
 import {useParams} from "react-router-dom" 
-// import {useDisplayAnswerQuery} from "../../../services/userAuthApi"
 
 
-function DisplayAnswer() {
 
-    // const params = useParams()
-    // const id = params
-
-    // const {data, isSuccess} = useDisplayAnswerQuery({id})
-    // console.log(data)
+function DisplayAnswer({a}) {
 
   return (
-    <div>DisplayAnswer</div>
+    <div>
+      <h1 className="fs-5">{a.answerBody}</h1>
+      <h1 className="fs-5">{a.userAnswered}</h1>
+      <h1 className="fs-5">{a.asnweredOn}</h1>
+    </div>
   )
 }
 

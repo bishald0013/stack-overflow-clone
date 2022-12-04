@@ -37,7 +37,7 @@ function PostAnswer() {
     const {allAnswers} = answer
     console.log(allAnswers)
     
-
+    //handle click
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -51,13 +51,15 @@ function PostAnswer() {
 
         const {answerBody} = answer
         // console.log(answerBody) 
-
     }
 
   return (
     <div>
         <div className="displayAnswer">
-            <DisplayAnswer />
+            {allAnswers.map((a) => {
+                return( <DisplayAnswer a={a} key={a._id} /> )
+            })}
+            
         </div>
         <div className='answer-div'>
             <form onSubmit={handleSubmit}>
