@@ -6,9 +6,7 @@ import Leftbar from '../Leftbar'
 import Rightbar from '../Rightbar'
 import PostAnswer from './PostAnswer'
 
-
-
- const QuestionDetails = () => {
+const QuestionDetails = () => {
 
   const params = useParams()
   const {id} = params
@@ -18,7 +16,6 @@ import PostAnswer from './PostAnswer'
   })
   
   const { data, isSuccess } = useGetQuestionsQuery({id})
-
 
   useEffect(() => {
     if(data && isSuccess){
@@ -44,16 +41,17 @@ import PostAnswer from './PostAnswer'
             </div>
             <div className="body my-5">
             <p>{qdetails.questionBody}</p>
-            </div>
+            <button type="button" class="btn btn-info">{qdetails.questionTags}</button>
             <hr></hr>
+            </div>
             
             <div className="answerBody mt-5">
               <PostAnswer/>
             </div>
           </div>
-          <div className="col-lg-3">
+          {/* <div className="col-lg-3">
             <Rightbar/>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

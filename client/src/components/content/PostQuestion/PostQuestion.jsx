@@ -3,6 +3,7 @@ import { useAskQuestionMutation } from "../../../services/userAuthApi";
 import {useLogedUserQuery} from "../../../services/userAuthApi"
 import {getToken} from "../../../services/localStorage"
 import { useEffect } from "react";
+import {useNavigate} from "react-router-dom"
 import "./postquestion.css";
 
 function PostQuestion() {
@@ -10,6 +11,7 @@ function PostQuestion() {
   let id;
 
   const token = getToken()
+  const navigate = useNavigate()
   const {data, isSuccess} = useLogedUserQuery(token)
 
   useEffect(() =>{
@@ -33,7 +35,11 @@ function PostQuestion() {
     
     if(question.questionTitle && question.questionBody && question.questionTags){
       const res = await askQuestion({question, id})
-      console.log(res)
+     if(res !== "fails"){
+      navigate("/")
+     }else{
+       console.log(res)
+     }
     }else{
       console.log("all fields are required")
     }
